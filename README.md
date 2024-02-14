@@ -2,11 +2,11 @@
 
 This project delves into the comprehensive legal counter-argument response generation employing LLM.
 
-The primary objective of this initiative is to facilitate individuals crafting counterarguments against legal accusations. It accomplishes this by summarizing legal documents and generating corresponding counters from these summaries. Moreover, to enhance the end-user's understanding of the document and enable queries, a question answering module has been seamlessly integrated.
+The primary objective of this initiative is to facilitate individuals crafting counterarguments against legal accusations. It accomplishes this by summarizing legal documents and generating corresponding counters from these summaries. Moreover, to enhance the end-user's understanding of the document and enable queries, a question-answering module has been seamlessly integrated.
 
 ## Document Summarization and Counterargument Generation
 Document Summarization and Counterargument Generation Architecture
-
+[Document Summarization and Counterargument Generation Architecture](https://github.com/RohitKrish46/legal-counter-argument/tree/main/images/LLM_legal_summary)
 Document Summarization workflow:
 
 1. To initiate the document summarization process, we begin by comprehensively parsing a legal document. It's strategically divided into smaller, fixed-sized sections of approximately 2000 tokens. This segmentation with a slight overlap not only ensures document continuity but also facilitates the Language Model's (LLM) comprehension.
@@ -17,8 +17,8 @@ Document Summarization workflow:
 
 ## Document  Question Answering
 
-Document Question Answering Architecture
 
+[Document Question Answering Architecture](https://github.com/RohitKrish46/legal-counter-argument/tree/main/images/LLM_legal_QA)
 Document Question Answering Workflow:
 
 1. Commencing the process, we provide a directory containing diverse unstructured data formats such as PDFs, text files, and HTML files. Our system thoroughly reads and processes each document.
