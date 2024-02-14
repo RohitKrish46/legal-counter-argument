@@ -1,0 +1,10 @@
+openai:
+  #apikey: "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"
+  apikey: "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"
+
+pinecone:
+  apikey: "bd0128eb-2449-442f-b1cc-386cdc792c18"
+  index_name: "langchain-index"
+  environment: "gcp-starter"
+data_dir:
+  path: "./data"
