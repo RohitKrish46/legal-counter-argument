@@ -20,7 +20,8 @@ Document Summarization workflow:
 ## Document Question Answering
 
 Document question-answering architecture
-![image](https://github.com/RohitKrish46/legal-counter-argument/assets/25106707/05ef5e19-4e5d-4942-a824-8a1c9d4754c3)
+![image](https://github.com/RohitKrish46/legal-counter-argument/assets/25106707/6031de06-d689-49dd-86e5-05d1c8e55f9e)
+
 
 Document Question Answering Workflow:
 
