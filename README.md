@@ -15,6 +15,8 @@ A powerful LLM-powered pipeline for summarizing legal documents, generating inte
 
 - [🚀 Quick Start](#-quick-start)
 
+- [🛠 Tech Stack](#-tech-stack)
+
 - [📌 Future Enhancements](#-future-enhancements)
 
 
@@ -95,6 +97,16 @@ python qa_pipeline.py --input_dir ./legal_docs
 # Ask a question
 python ask_question.py --question "What are the key charges in the document?"
 ```
+## 🛠 Tech Stack
+
+![Python](https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=darkgreen)
+![LangChain](https://img.shields.io/badge/LangChain-000000?style=for-the-badge&logo=chainlink&logoColor=white)
+![OpenAI](https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white)
+![Pinecone](https://img.shields.io/badge/Pinecone-5cbdaa?style=for-the-badge&logo=pinecone&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-F9423A?style=for-the-badge&logo=streamlit&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
+
+
 ## 📌 Future Enhancements
 - 🔒 Integrate document redaction for sensitive information
 
