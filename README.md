@@ -9,7 +9,7 @@ A powerful LLM-powered pipeline for summarizing legal documents, generating inte
 
 - [📐 System Architecture](#-system-architecture)
 
-    [1. Document Summarization & Counter-Argument Generation Workflow](#1-document-summarization--counter-argument-generation-workflow)
+    [1. Document Summarization & Counter-Argument Generation Workflow](#-1-document-summarization--counter-argument-generation-workflow)
   
     [2. Document Question Answering Workflow](#2-document-question-answering-workflow)
 
