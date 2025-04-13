@@ -1,34 +1,105 @@
 # legal-counter-argument
 
-This project delves into the comprehensive legal counter-argument response generation employing LLM.
+A powerful LLM-powered pipeline for summarizing legal documents, generating intelligent counterarguments, and enabling context-aware legal question answering. This system is designed to support individuals in understanding legal documents and crafting robust responses to legal accusations.
 
-The primary objective of this initiative is to facilitate individuals crafting counterarguments against legal accusations. It accomplishes this by summarizing legal documents and generating corresponding counters from these summaries. Moreover, to enhance the end-user's understanding of the document and enable queries, a question-answering module has been seamlessly integrated.
+📌 Table of Contents
+- [🧩 Overview](#-overview)
 
-## Document Summarization and Counterargument Generation
-Document summarization and counterargument generation architecture
+- [⚙️ Features](#-features)
+
+- [📐 System Architecture](#-system-architecture)
+
+    [1. Document Summarization & Counter-Argument Generation Workflow](#1-document-summarization--counter-argument-generation-workflow)
+  
+    [2. Document Question Answering Workflow](#2-document-question-answering-workflow)
+
+- [🚀 Quick Start](#-quick-start)
+
+- [📌 Future Enhancements](#-future-enhancements)
+
+
+## 🧩 Overview
+This project aims to empower users to generate intelligent legal counterarguments and ask detailed questions about legal documents using large language models (LLMs) like OpenAI’s gpt-3.5-turbo. It supports legal professionals, individuals without legal expertise, and researchers who need automated assistance with legal content.
+
+## ⚙️ Features
+- ✔️ Automatic summarization of lengthy legal documents
+- ✔️ Counter-argument generation using LLMs
+- ✔️ Multi-format document ingestion (PDF, HTML, TXT)
+- ✔️ Semantic search & question-answering with Pinecone vector store
+- ✔️ LangChain-powered modular pipelines for flexibility and scalability
+
+## 📐 System Architecture
+
+
+### 🔁 1. Document Summarization & Counter-Argument Generation Workflow:
+
+1. Input Parsing: Load large legal documents from various formats.
+
+2. Chunking: Split into overlapping chunks (~2000 tokens) for contextual coherence.
+
+3. Prompt Design: Use custom prompt templates tailored for legal summarization.
+
+4. LLM Summarization: Generate summary chunks using load_summarize_chain from LangChain.
+
+5. Summary Fusion: Combine individual summaries into a final, cohesive summary.
+
+6. Counter-Argument Generation: Use OpenAI’s GPT models to derive intelligent counterarguments from the final summary.
 
 ![image](https://github.com/RohitKrish46/legal-counter-argument/assets/25106707/cf70f0f1-35dc-4fb4-a8b9-ff45324b09f8)
 
-Document Summarization workflow:
 
-1. we begin by comprehensively parsing a legal document to initiate the document summarization process. It's strategically divided into smaller, fixed-sized sections of approximately 2000 tokens. This segmentation with a slight overlap ensures document continuity and facilitates the Language Model's (LLM) comprehension.
-2. Following segmentation, a tailor-made prompt is meticulously crafted using a PromptTemplate. This prompt forms the foundation for summarizing any given legal document.
-3. Leveraging langchain's specialized function, load_summarize_chain, we systematically generate summaries for each segmented portion of the document. These individual chunk summaries are then skillfully woven together to form a coherent final summary, presenting a comprehensive view of the document's essence.
-4. With the summary in hand, we further employ OpenAI's text completion models via API calls. Custom prompts guide the creation of a robust set of counterarguments, intelligently derived from the key points highlighted in the summary.
+## 🔁 2. Document Question Answering Workflow
 
 
-## Document Question Answering
+1. Multi-format Support: Ingest files in PDF, text, or HTML format.
 
-Document question-answering architecture
+2. Recursive Chunking: Segment using RecursiveCharacterTextSplitter (~1000 tokens with overlap).
+
+3. Embedding: Create dense vector embeddings using OpenAI's text-embedding-ada-002.
+
+4. Vector Store Setup: Store vectors in Pinecone for semantic search.
+
+5. QA Chain: Use LangChain’s load_qa_chain to retrieve relevant content and generate answers from LLM.
+
 ![image](https://github.com/RohitKrish46/legal-counter-argument/assets/25106707/6031de06-d689-49dd-86e5-05d1c8e55f9e)
 
 
-Document Question Answering Workflow:
+## 🚀 Quick Start
 
-1. Commencing the process, we provide a directory containing diverse unstructured data formats such as PDFs, text files, and HTML files. Our system thoroughly reads and processes each document.
-2. To ensure an organized approach, the RecursiveCharacterTextSplitter comes into play, segmenting the documents into equal-sized chunks of around 1000 tokens. Overlapping portions are thoughtfully included to maintain document coherence and fluidity.
-3. The chunked text undergoes meticulous embedding through OpenAIEmbeddings, identifying the exact dimensionality of the embeddings.
-4. Transitioning seamlessly, we establish a Pinecone Database index, leveraging the determined embedding dimensionality for efficient data management.
-5. With the index operational, we systematically store the embedded text chunks within the Pinecone index, facilitating swift and precise retrieval.
-6. Utilizing Langchain's prowess, we seamlessly chain the LLM (get-3.5-turbo) with a specialized function equipped to locate similar documents based on a given query, employing the load_qa_chain module.
-7. Concluding the workflow, our integrated system adeptly responds to user questions. It initially identifies analogous documents relevant to the query, then feeds both the question and retrieved information into the LLM. This orchestrates a precise answer generation process, ensuring targeted and insightful responses to specific questions extracted from the documents.
+### 🔧 Prerequisites
+- Python 3.9+
+- OpenAI API key
+- Pinecone API key & environment setup
+
+### 📦 Installation
+```
+git clone https://github.com/yourusername/legal-counter-argument.git
+cd legal-counter-argument
+pip install -r requirements.txt
+```
+### ⚙️ Configuration
+Update your .env file or set environment variables for:
+```
+OPENAI_API_KEY=your_openai_api_key
+PINECONE_API_KEY=your_pinecone_api_key
+PINECONE_ENV=your_pinecone_environment
+```
+### 🏃‍♂️ Running the Pipeline
+```
+# Run summarization & counter-argument generation
+python summarize_and_counterarg.py --input_dir ./legal_docs
+
+# Run document QA setup
+python qa_pipeline.py --input_dir ./legal_docs
+
+# Ask a question
+python ask_question.py --question "What are the key charges in the document?"
+```
+## 📌 Future Enhancements
+- 🔒 Integrate document redaction for sensitive information
+
+- 🌐 Add support for multilingual legal documents
+
+- 🧠 Fine-tune smaller local LLMs for on-premise deployment
+
+- 📊 Visual dashboard for document navigation and QA
